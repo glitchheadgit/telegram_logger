@@ -1,6 +1,7 @@
 # telegram_logger
 Log your python processes with Telegram bot
 
+Create a telegram bot, copy its API token and activate it with the account you want to receive log information from.
 For the context decorator to work correctly you must have the `TG_API_TOKEN` variable in your OS environment. The chat ID can be set directly in code or also with the `TG_CHAT_ID` env variable. To simplify the process of setting variables, you can install the [dotenv](https://pypi.org/project/python-dotenv/) module and create an .env file with variable/value pairs in your working directory. The module will try to load this data automatically on import.
 
 ## Examples
