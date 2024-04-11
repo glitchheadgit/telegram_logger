@@ -121,7 +121,7 @@ def telegram_logger_decorator(chat_id):
                 elapsed_time = end_time - start_time
 
                 if elapsed_time < 86400:
-                    time_str = time.strftime("%H:%M:%S.%f", time.gmtime(elapsed_time))
+                    time_str = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
                 else:
                     days = int(elapsed_time // 86400)
                     time_str = time.strftime(
@@ -130,7 +130,7 @@ def telegram_logger_decorator(chat_id):
 
                 error_type = type(e).__name__
                 error_text = str(e)
-                error_message = f"&#128548; Function <code>{func_name}</code> encountered an error:\n\n<code>{error_type + ' : ' + error_text if error_text else error_type}</code>"
+                error_message = f"&#128548; Function <code>{func_name}</code> encountered an error:\n\n<code>{error_type + ' : ' + error_text if error_text else error_type}</code>\n\nRuntime: <code>{time_str}</code>"
                 buffer.seek(0)
                 r = requests.post(
                     url + "sendDocument",
@@ -150,7 +150,6 @@ def telegram_logger_decorator(chat_id):
                             "parse_mode": "html",
                         },
                     )
-                return result
             finally:
                 buffer.close()
 
