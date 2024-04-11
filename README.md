@@ -15,6 +15,9 @@ with telegram_logger(chat_id=id, name='sleep_wrapper'):
     time.sleep(2)
 ```
 ![Example 1](./media/example1.png)
+
+Info from stdout and stderr goes to log file with function name(decorator) or your custom name(context manager, by default name='wrapper').
+
 ```python
 @telegram_logger(id)
 def broken_fibonacci(n):
@@ -33,5 +36,3 @@ def fibonacci(n):
 fibonacci(10)
 ```
 ![Example 3](./media/example3.png)
-
-Info from stdout and stderr goes to log file with function name(decorator) or your custom name(context manager, by default name='wrapper').
