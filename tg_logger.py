@@ -15,9 +15,9 @@ except ImportError:
 
 
 class telegram_logger():
-    def __init__(self, chat_id, name="wrapper") -> None:
+    def __init__(self, chat_id=os.getenv("TG_CHAT_ID"), name="wrapper") -> None:
         super().__init__()
-        self.chat_id = os.getenv("TG_CHAT_ID")
+        self.chat_id = chat_id
         self.token = os.getenv("TG_API_TOKEN")
         self.url = f"https://api.telegram.org/bot{self.token}/"
         self.name = name
