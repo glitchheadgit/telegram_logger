@@ -18,7 +18,7 @@ with telegram_logger(chat_id=id, name='sleep_wrapper'):
 @telegram_logger(id)
 def broken_fibonacci(n):
     a, b = 0, 1
-    raise NotImplementedError('I don't know math...')
+    raise NotImplementedError("I don't know math...")
 broken_fibonacci(10)
 ```
 ![Example 2](./examples/example2.png)
